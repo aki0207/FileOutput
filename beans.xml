@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN EN" 
+                       "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="messageBean" class="sample1.MessageBeanImpl" >
+        <constructor-arg>
+            <value>Spring</value>
+        </constructor-arg>
+
+        <property name="greeting">
+            <value>Hello, </value>
+        </property>
+        
+        <property name="outputter">
+            <ref local="outputter" />
+        </property>
+    </bean>
+    <bean id="outputter" class="sample1.FileOutputter">
+        <property name="filePath">
+            <value>out.txt</value>
+        </property>
+    </bean>
+</beans>
